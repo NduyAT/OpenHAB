@@ -1,3 +1,5 @@
+//edit by NDuyAT. Github: https://github.com/NduyAT/OpenHAB
+
 sitemap demo label="My project" {
     Frame label="Xiaomi plug" {
         Switch item=Fan icon="switch"
@@ -23,6 +25,11 @@ sitemap demo label="My project" {
         Text item=Current2 icon="error"
         Image refresh=15 url="http://localhost:3000/render/d-solo/95ivdD-Zk/do-thi-cong-suat-tong?panelId=2&width=400&height=200&from=now-1h&to=now"
         Image refresh=15 url="http://localhost:3000/render/d-solo/qBwqNv-Wk/do-thi-dien-ap?refresh=5s&orgId=1&panelId=2&width=400&height=200"
+    }
+    Frame label="Total" {
+        Text item=AllPower icon="error"
+        Text item=AllUsedToday icon="error"
+        Text item=AllUsedOfMonth icon="error"
     }
     Frame label="Time at the moment" {
         Text item=Time_now icon="error"

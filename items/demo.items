@@ -3,6 +3,8 @@ Switch Fan "Fan 1" {channel="zigbee:device:stick1:00158d0003c7ea2b:00158D0003C7E
 String DemoBatteryAlarm {channel="zigbee:device:stick1:00158d0003c7ea2b:00158D0003C7EA2B_1_basudtteryalarm"}
 Number Plug_Power <energy> { channel="zigbee:device:stick1:00158D0003C7EA2B:loadPower" }
 
+//edit by NDuyAT. Clone at https://github.com/NduyAT/OpenHAB.
+
 //SonoffPowR2 1
 Switch SonoffSwitch "Sonoff switch" {channel="mqtt:topic:sonoff:switch"} 
 String SonoffSwitch_State "Power State" {channel="mqtt:topic:sonoff:state01", channel="mqtt:topic:sonoff:state02", channel="mqtt:topic:sonoff:switch"}
@@ -20,6 +22,11 @@ Number Voltage2 "Voltage[%d V]" {channel="mqtt:topic:sonoff1:vcc"}
 Number Current2 "Current[%.2f A]" {channel="mqtt:topic:sonoff1:current"}
 Number Electric_Used2 "[%f kWh]"
 Number Used_Yesterday2 "[%f kWh]"
+
+//Total
+Number AllPower "Power [%.2f W]"
+Number AllUsedToday "Electric used on today [%.2f kWh]"
+Number AllUsedOfMonth "Electric used on month [%.2f kWh]"
 
 //Time at the moment
 String Time_now "[%s]"

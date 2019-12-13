@@ -7,8 +7,15 @@ Strategies
 }
 Items
 {
+//SonoffPOWR2 1
  PowerTotal : strategy = everyMinute
  Voltage : strategy = everyMinute
  Electric_Used : strategy = everyMinute
  Current : strategy = everyMinute
+
+//SonoffPOWR2 2
+ PowerTotal2 : strategy = everyMinute
+ Voltage2 : strategy = everyMinute
+ Electric_Used2 : strategy = everyMinute
+ Current2 : strategy = everyMinute
 }

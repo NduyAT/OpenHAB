@@ -1,3 +1,5 @@
+//edit by NDuyAT. Github: https://github.com/NduyAT/OpenHAB
+
 import org.openhab.model.script.actions.*
 import org.openhab.core.library.types.*
 import java.util.*
