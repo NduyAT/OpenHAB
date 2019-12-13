@@ -1,0 +1,36 @@
+sitemap demo label="My project" {
+    Frame label="Xiaomi plug" {
+        Switch item=Fan icon="switch"
+    }
+    Frame label="ROOM 1" {
+        Switch item=SonoffSwitch icon="switch"
+        Text item=SonoffSwitch_State icon="light"
+        Text item=PowerTotal icon="error"
+        Text item=Voltage icon="error"
+        Text item=Electric_Used icon="error"
+        Text item=Used_Yesterday icon="error"
+        Text item=Current icon="error"
+        Image refresh=15 url="http://localhost:3000/render/d-solo/95ivdD-Zk/do-thi-cong-suat-tong?panelId=2&width=400&height=200&from=now-1h&to=now"
+        Image refresh=15 url="http://localhost:3000/render/d-solo/qBwqNv-Wk/do-thi-dien-ap?refresh=5s&orgId=1&panelId=2&width=400&height=200"
+    }
+    Frame label="ROOM 2" {
+        Switch item=SonoffSwitch2 icon="switch"
+        Text item=SonoffSwitch_State2 icon="light"
+        Text item=PowerTotal2 icon="error"
+        Text item=Voltage2 icon="error"
+        Text item=Electric_Used2 icon="error"
+        Text item=Used_Yesterday2 icon="error"
+        Text item=Current2 icon="error"
+        Image refresh=15 url="http://localhost:3000/render/d-solo/95ivdD-Zk/do-thi-cong-suat-tong?panelId=2&width=400&height=200&from=now-1h&to=now"
+        Image refresh=15 url="http://localhost:3000/render/d-solo/qBwqNv-Wk/do-thi-dien-ap?refresh=5s&orgId=1&panelId=2&width=400&height=200"
+    }
+    Frame label="Time at the moment" {
+        Text item=Time_now icon="error"
+        Text item=Date_now icon="error"
+    }
+    Frame label="demo" {
+        Text item=DemoBatteryAlarm icon="light"
+        Text item=Plug_Power icon="error"
+    }
+    
+}

@@ -1,0 +1,72 @@
+Bridge mqtt:broker:MQTTBrokerTest [host="192.168.1.56", secure=false]
+{
+    Thing mqtt:topic:sonoff "Sonoff POW R2" {
+        Channels:
+            Type switch : switch "Power Switch" [
+                stateTopic="tasmota/sonoff/POWER",
+                commandTopic="tasmota/sonoff/cmnd/POWER",
+                on="ON",
+                off="OFF"
+            ]
+            Type string : state01 "Power" [
+                stateTopic="tasmota/sonoff/STATE",
+                transformationPattern="JSONPATH:$.POWER",
+                on="ON",
+                off="OFF"
+            ]
+            Type string : state02 "Power state" [
+                stateTopic="tasmota/sonoff/POWER",
+                on="ON",
+                off="OFF"
+            ]
+            Type number : state03 "Switch State 03" [ 
+                stateTopic="tasmota/sonoff/SENSOR",
+                transformationPattern="JSONPATH:$.ENERGY.Power",
+                on="ON",
+                off="OFF"
+          ]
+          Type number : vcc "VCC" [ 
+                stateTopic="tasmota/sonoff/SENSOR",
+                transformationPattern="JSONPATH:$.ENERGY.Voltage"
+          ]
+          Type number : current "Current" [
+                stateTopic="tasmota/sonoff/SENSOR",
+                transformationPattern="JSONPATH:$.ENERGY.Current"
+          ]
+    }
+    Thing mqtt:topic:sonoff1 "Sonoff POW R2 2" {
+        Channels:
+            Type switch : switch "Power Switch" [
+                stateTopic="tasmota/sonoff1/POWER",
+                commandTopic="tasmota/sonoff1/cmnd/POWER",
+                on="ON",
+                off="OFF"
+            ]
+            Type string : state01 "Power" [
+                stateTopic="tasmota/sonoff1/STATE",
+                transformationPattern="JSONPATH:$.POWER",
+                on="ON",
+                off="OFF"
+            ]
+            Type string : state02 "Power state" [
+                stateTopic="tasmota/sonoff1/POWER",
+                on="ON",
+                off="OFF"
+            ]
+            Type number : state03 "Switch State 03" [ 
+                stateTopic="tasmota/sonoff1/SENSOR",
+                transformationPattern="JSONPATH:$.ENERGY.Power",
+                on="ON",
+                off="OFF"
+          ]
+          Type number : vcc "VCC" [ 
+                stateTopic="tasmota/sonoff1/SENSOR",
+                transformationPattern="JSONPATH:$.ENERGY.Voltage"
+          ]
+          Type number : current "Current" [
+                stateTopic="tasmota/sonoff1/SENSOR",
+                transformationPattern="JSONPATH:$.ENERGY.Current"
+          ]
+    }
+}
+Thing zigbee:coordinator_cc2531:stick1 "Zigbee USB Stick" [zigbee_port="/dev/ttyACM0",zigbee_panid=13256,zigbee_extendedid="412756285F8517C9", zigbee_baud=38400]

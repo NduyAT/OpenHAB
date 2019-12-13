@@ -1,0 +1,26 @@
+//Mi Plug Lumi
+Switch Fan "Fan 1" {channel="zigbee:device:stick1:00158d0003c7ea2b:00158D0003C7EA2B_1_switch"}
+String DemoBatteryAlarm {channel="zigbee:device:stick1:00158d0003c7ea2b:00158D0003C7EA2B_1_basudtteryalarm"}
+Number Plug_Power <energy> { channel="zigbee:device:stick1:00158D0003C7EA2B:loadPower" }
+
+//SonoffPowR2 1
+Switch SonoffSwitch "Sonoff switch" {channel="mqtt:topic:sonoff:switch"} 
+String SonoffSwitch_State "Power State" {channel="mqtt:topic:sonoff:state01", channel="mqtt:topic:sonoff:state02", channel="mqtt:topic:sonoff:switch"}
+Number PowerTotal "Power total[%d W]" {channel="mqtt:topic:sonoff:state03"}
+Number Voltage "Voltage[%d V]" {channel="mqtt:topic:sonoff:vcc"}
+Number Current "Currnet[%.2f A]" {channel="mqtt:topic:sonoff:current"}
+Number Electric_Used "[%f kWh]"
+Number Used_Yesterday "[%f kWh]"
+
+//SonoffPOWR2 2
+Switch SonoffSwitch2 "Sonoff switch" {channel="mqtt:topic:sonoff1:switch"} 
+String SonoffSwitch_State2 "Power State" {channel="mqtt:topic:sonoff1:state01", channel="mqtt:topic:sonoff1:state02", channel="mqtt:topic:sonoff1:switch"}
+Number PowerTotal2 "Power total[%d W]" {channel="mqtt:topic:sonoff1:state03"}
+Number Voltage2 "Voltage[%d V]" {channel="mqtt:topic:sonoff1:vcc"}
+Number Current2 "Current[%.2f A]" {channel="mqtt:topic:sonoff1:current"}
+Number Electric_Used2 "[%f kWh]"
+Number Used_Yesterday2 "[%f kWh]"
+
+//Time at the moment
+String Time_now "[%s]"
+String Date_now "[%s]"
