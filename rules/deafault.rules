@@ -15,8 +15,10 @@ import org.openhab.model.script.actions.Timer
 
 var Number electricUsed
 var Number electricUsed1
+var Number electricUsedTotal
 var Number usedYesterday
 var Number usedYesterday1
+var Number usedOfMonthTotal
 //var yearCurr = now.getYear
 //var monthCurr = now.getMonthOfYear
 //var dayCurr = now.getDayOfMonth
@@ -41,6 +43,10 @@ then
         usedYesterday1 = 0
         postUpdate(Used_Yesterday2, usedYesterday1)
     }
+    if (usedOfMonthTotal == null){
+        usedOfMonthTotal = 0
+        postUpdate(AllUsedOfMonth, usedOfMonthTotal)
+    }
     if (hourCurr0 == 00 && minuteCurr0 == 00){
         usedYesterday = electricUsed
         electricUsed = 0
@@ -48,6 +54,11 @@ then
         usedYesterday1 = electricUsed1
         electricUsed1 = 0
         postUpdate(Used_Yesterday2, usedYesterday1)
+        electricUsedTotal = 0
+    }
+    if (dayCurr0 == 01 && hourCurr0 == 00 && minuteCurr0 == 00){
+        usedOfMonthTotal = 0
+        postUpdate(AllUsedOfMonth, usedOfMonthTotal)
     }
     postUpdate(Time_now, hourCurr0 + ":" + minuteCurr0)
     postUpdate(Date_now, dayCurr0 + "/" + monthCurr0 + "/" + yearCurr0)
@@ -61,10 +72,57 @@ then
     var minuteCurr = now.getMinuteOfHour
     var Number powerCurr = PowerTotal.state as DecimalType
     var Number powerCurr1 = PowerTotal2.state as DecimalType
+    var Number powerTotal
+    powerTotal = powerCurr + powerCurr1
     electricUsed = electricUsed + powerCurr / 60000
     electricUsed1 = electricUsed1 + powerCurr1 / 60000
+    electricUsedTotal = electricUsed + electricUsed1
+    usedOfMonthTotal = usedOfMonthTotal + powerTotal / 60000
     postUpdate(Electric_Used, electricUsed)
-    postUpdate(Electric_Used2, electricUsed1)    
+    postUpdate(Electric_Used2, electricUsed1)
+    postUpdate(AllPower, powerTotal)
+    postUpdate(AllUsedToday, electricUsedTotal)   
+    postUpdate(AllUsedOfMonth, usedOfMonthTotal)
+end
+
+rule "Protect Room1"
+when
+    Time cron "0 * * * * ?"
+then
+    var Number voltageRoom = Voltage.state as DecimalType
+    var Number currentRoom = Current.state as DecimalType
+    if (voltageRoom < 100){
+        sendCommand(SonoffSwitch, "OFF")
+        say("Warning: LOW VOLTAGE. PLEASE CHECK AND RESTART THE DIVICE")
+    }
+    if(VoltageRoom > 240){
+        sendCommand(SonoffSwitch, "OFF")
+        say("Warning: HIGH VOLTAGE. PLEASE CHECK AND RESTART THE DIVICE")
+    }
+    if(currentRoom > 14){
+        sendCommand(SonoffSwitch, "OFF")
+        say("Warning: OVER LOAD. PLEASE CHECK AND RESTART THE DIVICE")
+    }
+end
+
+rule "Protect Room 2"
+when
+    Time cron "0 * * * * ?"
+then
+    var Number voltageRoom2 = Voltage2.state as DecimalType
+    var Number currentRoom2 = Current2.state as DecimalType
+    if (voltageRoom2 < 100){
+        sendCommand(SonoffSwitch2, "OFF")
+        say("Warning: LOW VOLTAGE. PLEASE CHECK AND RESTART THE DIVICE")
+    }
+    if (VoltageRoom2 > 240){
+        sendCommand(SonoffSwitch2, "OFF")
+        say("Warning: HIGH VOLTAGE. PLEASE CHECK AND RESTART THE DIVICE")
+    }
+    if (currentRoom2 > 14){
+        sendCommand(SonoffSwitch2, "OFF")
+        say("Warning: OVER LOAD. PLEASE CHECK AND RESTART THE DIVICE")
+    }
 end
 
 /*rule "Timer"
