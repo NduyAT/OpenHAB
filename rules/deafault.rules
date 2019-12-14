@@ -100,15 +100,15 @@ then
     var Number currentRoom = Current.state as DecimalType
     if (voltageRoom < 100){
         sendCommand(SonoffSwitch, "OFF")
-        say("Warning: LOW VOLTAGE. PLEASE CHECK AND RESTART THE DIVICE")
+        say("Warning: LOW VOLTAGE. PLEASE CHECK AND RESTART THE DEVICE")
     }
     if(VoltageRoom > 240){
         sendCommand(SonoffSwitch, "OFF")
-        say("Warning: HIGH VOLTAGE. PLEASE CHECK AND RESTART THE DIVICE")
+        say("Warning: HIGH VOLTAGE. PLEASE CHECK AND RESTART THE DEVICE")
     }
     if(currentRoom > 14){
         sendCommand(SonoffSwitch, "OFF")
-        say("Warning: OVER LOAD. PLEASE CHECK AND RESTART THE DIVICE")
+        say("Warning: OVER LOAD. PLEASE CHECK AND RESTART THE DEVICE")
     }
 end
 
@@ -120,15 +120,15 @@ then
     var Number currentRoom2 = Current2.state as DecimalType
     if (voltageRoom2 < 100){
         sendCommand(SonoffSwitch2, "OFF")
-        say("Warning: LOW VOLTAGE. PLEASE CHECK AND RESTART THE DIVICE")
+        say("Warning: LOW VOLTAGE. PLEASE CHECK AND RESTART THE DEVICE")
     }
     if (VoltageRoom2 > 240){
         sendCommand(SonoffSwitch2, "OFF")
-        say("Warning: HIGH VOLTAGE. PLEASE CHECK AND RESTART THE DIVICE")
+        say("Warning: HIGH VOLTAGE. PLEASE CHECK AND RESTART THE DEVICE")
     }
     if (currentRoom2 > 14){
         sendCommand(SonoffSwitch2, "OFF")
-        say("Warning: OVER LOAD. PLEASE CHECK AND RESTART THE DIVICE")
+        say("Warning: OVER LOAD. PLEASE CHECK AND RESTART THE DEVICE")
     }
 end
 
