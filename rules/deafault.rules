@@ -19,11 +19,18 @@ var Number electricUsedTotal
 var Number usedYesterday
 var Number usedYesterday1
 var Number usedOfMonthTotal
+var Number count
 //var yearCurr = now.getYear
 //var monthCurr = now.getMonthOfYear
 //var dayCurr = now.getDayOfMonth
 //var hourCurr = now.getHourOfDay
 //var minuteCurr = now.getMinuteOfHour
+rule "Reset counter"
+when
+    System started
+then
+    count = 0
+end
 
 rule "Reset parameter"
 when
@@ -122,6 +129,20 @@ then
     if (currentRoom2 > 14){
         sendCommand(SonoffSwitch2, "OFF")
         say("Warning: OVER LOAD. PLEASE CHECK AND RESTART THE DIVICE")
+    }
+end
+
+rule "Stove over time"
+when
+    Time cron "0 * * * * ?"
+then
+    var Number currentStove = Current2.state as DecimalType
+    if (currentStove >= 10){
+        count = count + 1
+    }
+    if (count >= 180){
+        sendCommand(Stove, "OFF")
+        count = 0
     }
 end
 

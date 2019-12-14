@@ -1,5 +1,5 @@
 //Mi Plug Lumi
-Switch Fan "Fan 1" {channel="zigbee:device:stick1:00158d0003c7ea2b:00158D0003C7EA2B_1_switch"}
+Switch Stove "Fan 1" {channel="zigbee:device:stick1:00158d0003c7ea2b:00158D0003C7EA2B_1_switch"}
 String DemoBatteryAlarm {channel="zigbee:device:stick1:00158d0003c7ea2b:00158D0003C7EA2B_1_basudtteryalarm"}
 Number Plug_Power <energy> { channel="zigbee:device:stick1:00158D0003C7EA2B:loadPower" }
 

@@ -2,7 +2,7 @@
 
 sitemap demo label="My project" {
     Frame label="Xiaomi plug" {
-        Switch item=Fan icon="switch"
+        Switch item=Stove icon="switch"
     }
     Frame label="ROOM 1" {
         Switch item=SonoffSwitch icon="switch"

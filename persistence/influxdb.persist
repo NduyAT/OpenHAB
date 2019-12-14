@@ -18,4 +18,9 @@ Items
  Voltage2 : strategy = everyMinute
  Electric_Used2 : strategy = everyMinute
  Current2 : strategy = everyMinute
+
+ //Total
+ AllPower : strategy = everyMinute
+ AllUsedToday : strategy = everyMinute
+ AllUsedOfMonth : strategy = everyMinute
 }
