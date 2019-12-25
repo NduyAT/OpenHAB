@@ -1,6 +1,6 @@
 //edit by NDuyAT. Github: https://github.com/NduyAT/OpenHAB
 
-Bridge mqtt:broker:MQTTBrokerTest [host="192.168.1.52", secure=false]
+Bridge mqtt:broker:MQTTBrokerTest [host="192.168.1.63", secure=false]
 {
     Thing mqtt:topic:sonoff "Sonoff POW R2" {
         Channels:

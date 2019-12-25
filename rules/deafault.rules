@@ -122,7 +122,7 @@ then
         sendCommand(SonoffSwitch2, "OFF")
         say("Warning: LOW VOLTAGE. PLEASE CHECK AND RESTART THE DEVICE")
     }
-    if (VoltageRoom2 > 240){
+    if (VoltageRoom2 > 230){
         sendCommand(SonoffSwitch2, "OFF")
         say("Warning: HIGH VOLTAGE. PLEASE CHECK AND RESTART THE DEVICE")
     }

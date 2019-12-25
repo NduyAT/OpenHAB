@@ -5,6 +5,9 @@ Number Plug_Power <energy> { channel="zigbee:device:stick1:00158D0003C7EA2B:load
 
 //edit by NDuyAT. Clone at https://github.com/NduyAT/OpenHAB.
 
+//Mi Plug Lumi 2
+Switch AirConditional "Air conditional" {channel="zigbee:device:stick1:00158d000353d3a9:00158D000353D3A9_1_switch"}
+
 //SonoffPowR2 1
 Switch SonoffSwitch "Sonoff switch" {channel="mqtt:topic:sonoff:switch"} 
 String SonoffSwitch_State "Power State" {channel="mqtt:topic:sonoff:state01", channel="mqtt:topic:sonoff:state02", channel="mqtt:topic:sonoff:switch"}
